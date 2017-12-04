@@ -229,7 +229,7 @@ _DEFUN(__ssputs_r, (ptr, fp, buf, len),
   if (len < w)
     w = len;
 
-  (void)memmove ((_PTR) fp->_p, (_PTR) buf, (size_t) (w));
+  (void)memmove ((void *) fp->_p, (void *) buf, (size_t) (w));
   fp->_w -= w;
   fp->_p += w;
   return 0;
@@ -321,7 +321,7 @@ _DEFUN(__ssprint_r, (ptr, fp, uio),
       if (len < w)
 	w = len;
 
-      (void)memmove ((_PTR) fp->_p, (_PTR) p, (size_t) (w));
+      (void)memmove ((void *) fp->_p, (void *) p, (size_t) (w));
       fp->_w -= w;
       fp->_p += w;
       /* Pretend we copied all.  */
