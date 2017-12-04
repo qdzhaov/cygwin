@@ -144,8 +144,8 @@ VFSCANF (register FILE *fp,
 }
 
 int
-_EXFUN(vfiscanf, (FILE *, const char *, __VALIST)
-       _ATTRIBUTE ((__alias__("vfscanf"))));
+vfiscanf (FILE *, const char *, __VALIST)
+       _ATTRIBUTE ((__alias__("vfscanf")));
 
 int
 __SVFSCANF (register FILE *fp,
@@ -168,8 +168,8 @@ _VFSCANF_R (struct _reent *data,
 }
 
 int
-_EXFUN(_vfiscanf_r, (struct _reent *, FILE *, const char *, __VALIST)
-       _ATTRIBUTE ((__alias__("_vfscanf_r"))));
+_vfiscanf_r (struct _reent *, FILE *, const char *, __VALIST)
+       _ATTRIBUTE ((__alias__("_vfscanf_r")));
 #endif /* !STRING_ONLY.  */
 
 #if defined (STRING_ONLY)
@@ -248,9 +248,9 @@ __ssrefill_r (struct _reent * ptr,
 }
 
 #else
-int _EXFUN (_sungetc_r, (struct _reent *, int, register FILE *));
-int _EXFUN (__ssrefill_r, (struct _reent *, register FILE *));
-size_t _EXFUN (_sfread_r, (struct _reent *, void *buf, size_t, size_t, FILE *));
+int _sungetc_r (struct _reent *, int, register FILE *);
+int __ssrefill_r (struct _reent *, register FILE *);
+size_t _sfread_r (struct _reent *, void *buf, size_t, size_t, FILE *);
 #endif /* !STRING_ONLY.  */
 
 int
@@ -448,11 +448,11 @@ all_done:
 
 #ifdef STRING_ONLY
 int
-_EXFUN(__ssvfiscanf_r, (struct _reent *, FILE *, const char *, __VALIST)
-       _ATTRIBUTE ((__alias__("__ssvfscanf_r"))));
+__ssvfiscanf_r (struct _reent *, FILE *, const char *, __VALIST)
+       _ATTRIBUTE ((__alias__("__ssvfscanf_r")));
 #else
 int
-_EXFUN(__svfiscanf_r, (struct _reent *, FILE *, const char *, __VALIST)
-       _ATTRIBUTE ((__alias__("__svfscanf_r"))));
+__svfiscanf_r (struct _reent *, FILE *, const char *, __VALIST)
+       _ATTRIBUTE ((__alias__("__svfscanf_r")));
 #endif
 
